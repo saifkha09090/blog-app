@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posted Box</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="full" class="full-blog p-5">
+       
+        <div class="post-box">
+          <div class="justify-content-start align-items-center mb-2">
+            <img
+              src="https://scontent.fkhi2-3.fna.fbcdn.net/v/t39.30808-1/271807667_896762127668625_7208443774824397038_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeFh3mniuFm8ETNOsWULXC3LT6esr3fsu6xPp6yvd-y7rFLbuJBuChhlqysFtwaDCWy2kZ2rjuvHMKNw2zyNxTFw&_nc_ohc=wuklhQNY4jIQ7kNvgGguQ_Q&_nc_oc=Adit6QqEGx9ZUyKu-0Dq2GtaSM_ZUmoPeVts_dCEh9GgjjDgMgP3waferCXh4eqwlg0&_nc_zt=24&_nc_ht=scontent.fkhi2-3.fna&_nc_gid=AVfa8urZxPVpoW8vsThkbxh&oh=00_AYC9UiTqG11kkkGWLrXiwtBJN3n4wGjYFAOYDU55xWTx_A&oe=67C3D547"
+              class="rounded-circle me-2 img"
+              alt="User"
+            />
+            <label>
+              <p id="userName" class="mb-0 fw-bold"></p>
+            </label>
+          </div>
+          <textarea
+            class="form-control"
+            id="postText"
+            rows="3"
+            placeholder="What's on your mind"
+          ></textarea>
+
+          <div class="bg-options">
+            <span class="bg-color" style="background: #fff"></span>
+            <span class="bg-color" style="background: #ff0000"></span>
+            <span class="bg-color" style="background: #003cff"></span>
+            <span
+              class="bg-color"
+              style="
+                background: url(https://scontent.fkhi2-3.fna.fbcdn.net/v/t39.10873-6/35161904_177465492945163_1572012365967261696_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=427b5c&_nc_eui2=AeFEA06tQTR9d1Xey9tkWe9tzhlmIp6VYB7OGWYinpVgHmiQQCiuhdKo1VS25RXfFJwOeDynHhTC8eFT15DNcVL-&_nc_ohc=XiRnBMssTOEQ7kNvgFvosvl&_nc_oc=AdjpRV4Y48IS08LdNw9CFojjKjCreFMVA1aNBeGaxS3o9YTwcoLUlXdYtXz9ZVot2CU&_nc_zt=14&_nc_ht=scontent.fkhi2-3.fna&_nc_gid=AqN5yBVpKdNzmm3oWQabgwf&oh=00_AYB1oSU1mPl241kx4LeTKQVnSCf3b5aNFsWRclKJrObAxw&oe=67C3CF2B);
+              "
+            ></span>
+            <span
+              class="bg-color"
+              style="
+                background: url(https://scontent.fkhi2-3.fna.fbcdn.net/v/t39.10873-6/27808878_423109994788470_6661180850857574400_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=427b5c&_nc_eui2=AeHauINkklTeWtX5JHxMzvE0LIyjRIKIhAMsjKNEgoiEA4kDlXwvMV5BHBt7xIwbVwSDm6weFNn5gNIzccIkWJtZ&_nc_ohc=ZCp-okh7EAgQ7kNvgHXEsqw&_nc_oc=AdgeOYo3fhdMJewLrUwRKYZeISFzWyIZLoAqjXPa1rtgxYv1QbhshANzEHYvskim7_w&_nc_zt=14&_nc_ht=scontent.fkhi2-3.fna&_nc_gid=AqN5yBVpKdNzmm3oWQabgwf&oh=00_AYCtNBwzxL9Z3X6qH5vQjgPkvrzivnF4AsIgTQKTYK8Aog&oe=67C3BAB6);
+              "
+            ></span>
+            <span
+              class="bg-color"
+              style="
+                background: url(https://scontent.fkhi2-3.fna.fbcdn.net/v/t39.10873-6/35080417_221828841942262_8492679889420288000_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=427b5c&_nc_eui2=AeGI_w79MWl24t35Q28nUGlfrX55tvjaKQStfnm2-NopBCZs_A-V1ZIE0Yw5jK50KCW3DiPMExmM8LlDVMs5q148&_nc_ohc=Oc9-cmernkUQ7kNvgGvk2ro&_nc_oc=Adi994cijESoM1h79G6HSLC6L4F0GmX4XOMEgVuxK9xv1JIwmrDiHXZDnuCjwRri0E0&_nc_zt=14&_nc_ht=scontent.fkhi2-3.fna&_nc_gid=AqN5yBVpKdNzmm3oWQabgwf&oh=00_AYChCqJxw2sDEv0DAOpQEHbkh1rq5OgzEVle_2pTDOkzGg&oe=67C3E3CA);
+              "
+            ></span>
+            <span
+              class="bg-color"
+              style="
+                background: url(https://scontent.fkhi2-3.fna.fbcdn.net/v/t39.10873-6/37098371_200521344131972_292343430107889664_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=427b5c&_nc_eui2=AeFScNTc0M2t8n7E4j9L3jEKSh11Xo3t-HBKHXVeje34cCD1xFwZUksQ-4NdNSn_5P-0Bwgkfmrj5L5R2P5QE7VH&_nc_ohc=hXncus5H0cIQ7kNvgEO5UO0&_nc_oc=AdjsmuPQAghVZlxHyYSzrlCjZglUAOXcKU1l60fhIu2CTHyWoJAAUQOCvYlrUU9z0GE&_nc_zt=14&_nc_ht=scontent.fkhi2-3.fna&_nc_gid=AqN5yBVpKdNzmm3oWQabgwf&oh=00_AYAA0r0mEUDFAJ9pOyWbZZQCZevBJOHf0_h4pU9AT3Y3zw&oe=67C3DF34);
+              "
+            ></span>
+            <span
+              class="bg-color"
+              style="
+                background: url(https://scontent.fkhi2-3.fna.fbcdn.net/v/t39.10873-6/36932507_2193627803985414_2343808531540475904_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=427b5c&_nc_eui2=AeHwBtBpny6xMzrrZRogZ2SJHQsAGHR6_REdCwAYdHr9ERut9V29gGXRvfdmMuASqO9AmuzUs_wqiat0n5pV_WvS&_nc_ohc=-PucNz4035MQ7kNvgHL9U0O&_nc_oc=AdjMZDh3fsuSeP3-pmYF5tQ7c_eJ8Sn9VFLZnNhC7oqVpU6lmATGypn8lB_yq6q_21U&_nc_zt=14&_nc_ht=scontent.fkhi2-3.fna&_nc_gid=AqN5yBVpKdNzmm3oWQabgwf&oh=00_AYDnAYF9H6vUrx9zgi0I5mRYIqcscBGWpyER_AIbTFNfkQ&oe=67C3C3CD);
+              "
+            ></span>
+          </div>
+
+          <div class="text-center m-2">
+            <button class="btn post-button p-2 px-5 fs-5" id="postBtn" disabled>Post</button>
+          </div>
+        </div>
+
+        <div class="mb-4" id="post"></div>
+      </div>
+
+      <script src="blog.js"></script>
+
+</body>
+</html>
+
