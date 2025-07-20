@@ -49,10 +49,8 @@ loginForm.addEventListener("click", function () {
   let email = document.getElementById("login-email");
   let password = document.getElementById("login-password");
 
-  let storedVal = JSON.parse(localStorage.getItem("users"));
-  if (
-    storedVal.find(user => user.email === email.value && user.password === password.value)
-  ) {
+  let storedVal = JSON.parse(localStorage.getItem("users")) || [];
+  if (storedVal.find(user => user.email === email.value && user.password === password.value)) {
     location.href = 'blog.html'
     localStorage.setItem("email", email.value);
   } else {
