@@ -3,8 +3,12 @@ let postBtn = document.getElementById("postBtn");
 let UserName = document.getElementById("userName");
 let background = document.querySelectorAll(".bg-color");
 let post = document.getElementById("post");
-let getName = localStorage.getItem("name");
 let full = document.getElementById("full");
+let getName = JSON.parse(localStorage.getItem("users"));
+
+getName = getName.find(
+  (user) => user.email === localStorage.getItem("email")
+).name;
 UserName.innerText = getName;
 
 full.classList.add("h-100vh");
@@ -28,27 +32,86 @@ background.forEach(function (bg) {
   });
 });
 
+let allPosts = [];
+
 postBtn.addEventListener("click", function () {
-  post.innerHTML += `<div class="post-box m-3">
-        <div class="user-info px-2">
-        <img src="https://scontent.fkhi2-3.fna.fbcdn.net/v/t39.30808-1/271807667_896762127668625_7208443774824397038_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeFh3mniuFm8ETNOsWULXC3LT6esr3fsu6xPp6yvd-y7rFLbuJBuChhlqysFtwaDCWy2kZ2rjuvHMKNw2zyNxTFw&_nc_ohc=wuklhQNY4jIQ7kNvgGguQ_Q&_nc_oc=Adit6QqEGx9ZUyKu-0Dq2GtaSM_ZUmoPeVts_dCEh9GgjjDgMgP3waferCXh4eqwlg0&_nc_zt=24&_nc_ht=scontent.fkhi2-3.fna&_nc_gid=AVfa8urZxPVpoW8vsThkbxh&oh=00_AYC9UiTqG11kkkGWLrXiwtBJN3n4wGjYFAOYDU55xWTx_A&oe=67C3D547" alt="User Image">
-        <div class="user-name">${getName}</div>
-        <div class="user-name text-end w-100"><button class="delete-post" onclick="deletePost()">🗑</button></div>
-        </div>
-        <div class="post-content" style='
-                    background: ${postBg};
-                  '>
-        ${postText.value}
-        </div>
-        </div>`;
+  let postObj = {
+    id: Date.now(),
+    name: getName,
+    content: postText.value,
+    postBackground: postBg,
+  };
+  let storedPost = JSON.parse(localStorage.getItem("posts"));
+  allPosts.push(postObj);
+  localStorage.setItem("posts", JSON.stringify(allPosts));
   postText.value = "";
-  full.classList.remove("h-100vh");
-  if (postText.value == '') {
+
+  if (postText.value == "") {
     postBtn.disabled = true;
   }
-});
 
-function deletePost() {
-  let post = event.target.parentNode.parentNode.parentNode;
-  post.remove();
+  if (post.innerHTML != "") {
+    full.classList.remove("h-100vh");
+  }
+  renderPosts();
+
+});
+renderPosts();
+function renderPosts() {
+  let storedPost = JSON.parse(localStorage.getItem("posts")) || [];
+  post.innerHTML = "";
+   storedPost.forEach((pos) => {
+    post.innerHTML += `<div class="post-box m-3" data-id="${pos.id}">
+        <div class="d-flex justify-content-between mb-2">
+        <div class="d-flex">
+            <img
+              src="https://cdn3.iconfinder.com/data/icons/login-7/512/LOGIN-10-512.png"
+              class="rounded-circle me-2 img"
+              alt="User"
+            />
+            <label class="align-self-center">
+              <p class="mb-0 fw-bold">${pos.name}</p>
+            </label>
+          </div>
+        <div class="">
+        <button class="delete-post">🗑</button>
+        </div>
+        </div>
+        <div class="post-content" style='
+                    background: ${pos.postBackground || "#ededed"};
+                  '>
+        ${pos.content}
+        </div>
+        </div>`;
+  });
+
+  // Add event listener to all delete buttons after rendering
+  document.querySelectorAll(".delete-post").forEach((btn) => {
+    btn.addEventListener("click", deletePost);
+  });
+
+  if (storedPost.length === 0) {
+    full.classList.add("h-100vh");
+  } else {
+    full.classList.remove("h-100vh");
+  }
+
+  allPosts = storedPost;
+}
+
+function deletePost(e) {
+ let postBox = e.target.closest(".post-box");
+  let postId = Number(postBox.getAttribute("data-id"));
+
+  postBox.remove();
+
+  let storedPosts = JSON.parse(localStorage.getItem("posts")) || [];
+  let updatedPosts = storedPosts.filter(post => post.id !== postId);
+
+  localStorage.setItem("posts", JSON.stringify(updatedPosts));
+
+  if (updatedPosts.length === 0) {
+    full.classList.add("h-100vh");
+  }
+  
 }

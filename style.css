@@ -251,15 +251,17 @@
 }
 .form-control {
   height: 310px;
-  background-size: cover;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
   color: #000000 !important;
   font-size: 1.5rem !important;
   font-weight: 600 !important;
   align-content: center;
   text-align: center;
-  background: #ffffff;
+  background: #ededed ;
 }
 .form-control:focus {
+   background-color: #ededed;
   border-color: #ededed;
   box-shadow: 0 0 0 .25rem #ededed;
 }
@@ -297,7 +299,8 @@
   height: 250px;
   padding: 0 20px;
   overflow-wrap: break-word;
-  background-size: cover;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
   color: #000000 !important;
   font-size: 1.5rem !important;
   font-weight: 600 !important;
