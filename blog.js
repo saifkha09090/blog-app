@@ -85,7 +85,6 @@ function renderPosts() {
         </div>`;
   });
 
-  // Add event listener to all delete buttons after rendering
   document.querySelectorAll(".delete-post").forEach((btn) => {
     btn.addEventListener("click", deletePost);
   });
